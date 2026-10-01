@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riña Gañan — Eternal Light (EPK / Press Kit)</title>
+    <!-- Google Fonts: Inter & Orbitron for Sci-Fi Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'prism-bg': '#f8f9fa',
+                        'prism-card': '#ffffff',
+                        'prism-text-dark': '#1a1d20',
+                        'prism-text-muted': '#5a626a',
+                        'prism-border': '#e2e8f0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        scifi: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Prism Spectral CSS Variables */
+        :root {
+            --spectral-gradient: linear-gradient(90deg, #ff4b4b, #ff8c00, #ffd700, #2ecc71, #00d2ff, #9b59b6);
+            --active-accent: #ff4b4b;
+            --active-glow: rgba(255, 75, 75, 0.25);
+        }
+
+        body {
+            background-color: #f6f7f9;
+            color: #1c2024;
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Prism Line Divider */
+        .prism-rainbow-bar {
+            height: 4px;
+            background: var(--spectral-gradient);
+            width: 100%;
+            box-shadow: 0 0 15px rgba(255,255,255,0.8);
+        }
+
+        .prism-glow-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .prism-glow-card:hover {
+            box-shadow: 0 20px 40px -15px var(--active-glow);
+            border-color: var(--active-accent);
+        }
+
+        .active-track-card {
+            border-color: var(--active-accent) !important;
+            box-shadow: 0 12px 35px -10px var(--active-glow) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Dynamic Accent Elements */
+        .accent-color {
+            color: var(--active-accent);
+            transition: color 0.4s ease;
+        }
+
+        .accent-bg {
+            background-color: var(--active-accent);
+            transition: background-color 0.4s ease;
+        }
+
+        .accent-border {
+            border-color: var(--active-accent);
+            transition: border-color 0.4s ease;
+        }
+
+        /* Sci-Fi Geometry Decorative Ring */
+        .geo-circle {
+            position: absolute;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Track Art Aspect Ratio Safeguard */
+        .art-container {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+
+        .art-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .art-container:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Responsive Video Container */
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Pulse Animation for Standby Tag */
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(0.98); }
+        }
+        .pulse-badge {
+            animation: subtle-pulse 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+    <!-- Top Rainbow Spectral Bar -->
+    <div class="prism-rainbow-bar sticky top-0 z-50"></div>
+
+    <!-- Background Sci-Fi Decorative Geometry -->
+    <div class="geo-circle w-[600px] h-[600px] -top-40 -left-40 border-slate-200"></div>
+    <div class="geo-circle w-[900px] h-[900px] top-1/3 -right-60 border-slate-200"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full z-10">
+
+        <!-- HEADER SECTION -->
+        <header class="prism-glow-card rounded-2xl p-6 sm:p-10 mb-8 relative overflow-hidden">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+                <div class="text-center md:text-left">
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-3">
+                        <span class="pulse-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                            📍 León, Gto — Local Standby / Backup Listo
+                        </span>
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase bg-slate-100 text-slate-700 border border-slate-200">
+                            Live Performance / DJ Set
+                        </span>
+                    </div>
+                    <h1 class="font-scifi text-3xl sm:text-5xl font-black text-slate-900 tracking-wider uppercase mb-1">
+                        Riña Gañan
+                    </h1>
+                    <h2 class="font-scifi text-xl sm:text-2xl font-semibold tracking-widest text-slate-500 uppercase">
+                        Eternal Light
+                    </h2>
+                    <p class="mt-2 text-slate-600 font-medium max-w-xl text-sm sm:text-base">
+                        Melodic Techno • Producción Original • Espectáculo Inmersivo de Ciencia Ficción
+                    </p>
+                </div>
+
+                <!-- CTA Actions -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <a href="#contact" class="accent-bg text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:brightness-110 transition text-center text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Contacto Directo
+                    </a>
+                    <a href="#audio-demo" class="bg-slate-900 text-white font-semibold px-6 py-3 rounded-xl hover:bg-slate-800 transition text-center text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-play"></i> Escuchar Demo
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONCEPT & SCI-FI NARRATIVE SECTION -->
+        <section class="prism-glow-card rounded-2xl p-6 sm:p-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-5">
+                    <div class="art-container shadow-xl border border-slate-200">
+                        <img id="main-cover-display" src="https://placehold.co/800x800/f8f9fa/1a1d20?text=ETERNAL+LIGHT" alt="Eternal Light Album Art" onerror="this.src='https://placehold.co/800x800/e2e8f0/1e293b?text=Eternal+Light'">
+                    </div>
+                </div>
+                <div class="md:col-span-7 space-y-4">
+                    <div class="inline-flex items-center gap-2 text-xs font-scifi uppercase tracking-widest font-bold accent-color">
+                        <i class="fa-solid fa-prism"></i> Concepto Audiovisual
+                    </div>
+                    <h3 class="font-scifi text-2xl font-bold text-slate-900 uppercase tracking-wide">
+                        La Refracción del Sonido y la Luz
+                    </h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        <strong class="text-slate-800">"Eternal Light"</strong> es una obra conceptual de Melodic Techno concebida a partir de una narrativa sci-fi escrita por el mismo artista. La experiencia sonora emula el comportamiento físico de un <strong class="text-slate-800">prisma óptico</strong>: una luz pura inicial que se descompone en distintas frecuencias cromáticas a lo largo de cada track, culminando en un clímax melódico de alta energía.
+                    </p>
+                    <div class="p-4 rounded-xl bg-slate-50 border-l-4 accent-border text-slate-700 italic text-sm">
+                        "Cada composición representa una longitud de onda específica del espectro visible. Los sintetizadores analógicos, bajos profundos y progresiones melódicas construyen un viaje envolvente diseñado específicamente para escenarios masivos y de festival."
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 pt-2 text-center">
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <span class="block font-scifi font-bold text-slate-900 text-lg">100%</span>
+                            <span class="text-xs text-slate-500 font-medium">Música Original</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <span class="block font-scifi font-bold text-slate-900 text-lg">119-129</span>
+                            <span class="text-xs text-slate-500 font-medium">Rango BPM</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <span class="block font-scifi font-bold text-slate-900 text-lg">45 Min</span>
+                            <span class="text-xs text-slate-500 font-medium">Respuesta Local</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE TRACKLIST / PRISM SPECTRUM -->
+        <section class="prism-glow-card rounded-2xl p-6 sm:p-8 mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-2">
+                <div>
+                    <h3 class="font-scifi text-xl font-bold text-slate-900 uppercase tracking-wider">
+                        Espectro del Álbum (Tracklist)
+                    </h3>
+                    <p class="text-slate-500 text-xs sm:text-sm">Haz clic en cada track para explorar su color espectral y concepto visual</p>
+                </div>
+                <div class="hidden sm:block text-xs font-mono text-slate-400">
+                    PRISM FREQUENCY DISPERSION
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="tracklist-container">
+                <!-- Tracks dynamically rendered/handled via JS -->
+            </div>
+        </section>
+
+        <!-- MEDIA & LIVE SET DEMO -->
+        <section id="audio-demo" class="prism-glow-card rounded-2xl p-6 sm:p-8 mb-8">
+            <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-xs font-scifi uppercase tracking-widest font-bold accent-color">
+                        <i class="fa-solid fa-play-circle"></i> Video Oficial & Performance
+                    </div>
+                    <h3 class="font-scifi text-xl sm:text-2xl font-bold text-slate-900 uppercase tracking-wider">
+                        Reproductor de Videos Oficiales (YouTube)
+                    </h3>
+                </div>
+                <span id="now-playing-badge" class="px-3 py-1 rounded-full text-xs font-scifi uppercase font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    Reproduciendo: The Awakening
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8">
+                    <div class="video-responsive shadow-lg border border-slate-200 bg-black">
+                        <!-- Dynamic YouTube Player Embed -->
+                        <iframe id="main-youtube-player" src="https://www.youtube.com/embed/W50hF9oAMBQ" title="Riña Gañan Official Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-scifi font-bold text-slate-900 text-sm uppercase mb-2">
+                            <i class="fa-brands fa-youtube accent-color mr-1"></i> Canal Oficial
+                        </h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                            Todos los temas de <strong class="text-slate-800">Eternal Light</strong> cuentan con su Video Oficial de Letra en YouTube. Selecciona cualquier pista del espectro para cargar su video interactivo.
+                        </p>
+                        <button onclick="copyToClipboard('https://youtube.com/@rinaganan')" class="w-full py-3 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-medium text-sm transition flex items-center justify-between shadow-sm">
+                            <span class="flex items-center gap-2"><i class="fa-brands fa-youtube text-lg"></i> Ir a YouTube</span>
+                            <i class="fa-solid fa-external-link text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-100/70 border border-slate-200 text-xs text-slate-500">
+                        <i class="fa-solid fa-circle-info accent-color mr-1"></i> Formato Live Hybrid / DJ Set con sincronización audiovisual disponible para festivales y recintos.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL RIDER & LOGISTICS -->
+        <section class="prism-glow-card rounded-2xl p-6 sm:p-8 mb-8">
+            <div class="mb-6">
+                <div class="inline-flex items-center gap-2 text-xs font-scifi uppercase tracking-widest font-bold accent-color">
+                    <i class="fa-solid fa-microchip"></i> Especificaciones
+                </div>
+                <h3 class="font-scifi text-xl sm:text-2xl font-bold text-slate-900 uppercase tracking-wider">
+                    Rider Técnico & Logística Local
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-5 rounded-xl bg-slate-50/80 border border-slate-200">
+                    <div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-800 mb-3 accent-color font-bold text-lg">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h4 class="font-scifi text-xs uppercase font-bold text-slate-400 mb-1">Repertorio</h4>
+                    <p class="font-semibold text-slate-900 text-sm">100% Producción propia</p>
+                    <p class="text-xs text-slate-500 mt-1">Tracks originales del álbum Eternal Light</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-slate-50/80 border border-slate-200">
+                    <div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-800 mb-3 accent-color font-bold text-lg">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h4 class="font-scifi text-xs uppercase font-bold text-slate-400 mb-1">Dinámica BPM</h4>
+                    <p class="font-semibold text-slate-900 text-sm">119 BPM a 129 BPM</p>
+                    <p class="text-xs text-slate-500 mt-1">Modular según horario y escenario</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-slate-50/80 border border-slate-200">
+                    <div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-800 mb-3 accent-color font-bold text-lg">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h4 class="font-scifi text-xs uppercase font-bold text-slate-400 mb-1">Setup / DJ Rig</h4>
+                    <p class="font-semibold text-slate-900 text-sm">Pioneer CDJs / Rekordbox</p>
+                    <p class="text-xs text-slate-500 mt-1">Ready en USB Dual Master Out</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-slate-50/80 border border-slate-200">
+                    <div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-800 mb-3 accent-color font-bold text-lg">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h4 class="font-scifi text-xs uppercase font-bold text-slate-400 mb-1">Ubicación & Tiempo</h4>
+                    <p class="font-semibold text-slate-900 text-sm">Residencia en León, Gto</p>
+                    <p class="text-xs text-slate-500 mt-1">Llegada al parque en 45 min máximo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & BOOKING -->
+        <section id="contact" class="prism-glow-card rounded-2xl p-6 sm:p-10 mb-8 text-center relative overflow-hidden">
+            <div class="max-w-2xl mx-auto relative z-10">
+                <span class="inline-block px-3 py-1 rounded-full text-xs font-scifi uppercase font-bold tracking-widest bg-slate-100 text-slate-700 mb-3">
+                    Disponibilidad Inmediata / Contingencias
+                </span>
+                <h3 class="font-scifi text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-wider mb-3">
+                    Contacto Directo / Booking
+                </h3>
+                <p class="text-slate-600 text-sm sm:text-base mb-8">
+                    Disponible como talento local de respaldo, reemplazo de última hora o programación en escenarios alternos.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="mailto:booking@rinaganan.com" class="w-full sm:w-auto accent-bg text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:brightness-110 transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-solid fa-envelope"></i> Enviar Correo Directo
+                    </a>
+                    <a href="https://wa.me/5214770000000?text=Hola%20Riña%20Gañan,%20te%20contactamos%20del%20comité/escenario%20para..." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Inmediato
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-slate-400 text-xs py-6">
+            <p class="font-scifi tracking-widest uppercase">© 2026 RIÑA GAÑAN — ETERNAL LIGHT</p>
+            <p class="mt-1 text-slate-400">Todos los derechos reservados. León, Guanajuato, México.</p>
+        </footer>
+
+    </div>
+
+    <!-- Notification Toast Box -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 text-sm">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-message">Enlace copiado al portapapeles</span>
+    </div>
+
+    <script>
+        // Album Tracklist Data matching official YouTube Lyrics Videos
+        const albumTracks = [
+            {
+                id: 'awakening',
+                title: 'The Awakening',
+                colorName: 'Rojo / Coral',
+                hex: '#ff4b4b',
+                glow: 'rgba(255, 75, 75, 0.3)',
+                desc: 'La primera refracción del prisma. Inicio rítmico cálido de baja velocidad.',
+                art: 'the_awakening.jpg',
+                youtubeId: 'W50hF9oAMBQ'
+            },
+            {
+                id: 'signal',
+                title: 'The Signal',
+                colorName: 'Naranja / Durazno',
+                hex: '#ff8c00',
+                glow: 'rgba(255, 140, 0, 0.3)',
+                desc: 'Emisión de frecuencias moduladas con arpegios brillantes.',
+                art: 'the_signal.jpg',
+                youtubeId: 'oznkZIvzfo8'
+            },
+            {
+                id: 'echoes',
+                title: 'Echoes of Tomorrow',
+                colorName: 'Amarillo / Dorado',
+                hex: '#eab308',
+                glow: 'rgba(234, 179, 8, 0.3)',
+                desc: 'Texturas resplandecientes y acordes expansivos en crescendo.',
+                art: 'echoes_of_tomorrow.jpg',
+                youtubeId: '5UnhLoKOMTw'
+            },
+            {
+                id: 'prisma',
+                title: 'Prisma',
+                colorName: 'Verde Esmeralda',
+                hex: '#10b981',
+                glow: 'rgba(16, 185, 129, 0.3)',
+                desc: 'El punto de difracción focal. Bajos contundentes y sintetizador orgánico.',
+                art: 'prisma.jpg',
+                youtubeId: 'Wbcp4Swl2BQ'
+            },
+            {
+                id: 'fracture',
+                title: 'The Fracture',
+                colorName: 'Cian / Turquesa',
+                hex: '#06b6d4',
+                glow: 'rgba(6, 182, 212, 0.3)',
+                desc: 'Ruptura rítmica. Atmósferas heladas y vocales procesadas.',
+                art: 'the_fracture.jpg',
+                youtubeId: 'aTzOPvGlRGM'
+            },
+            {
+                id: 'memory',
+                title: 'One Last Memory',
+                colorName: 'Violeta / Púrpura',
+                hex: '#a855f7',
+                glow: 'rgba(168, 85, 247, 0.3)',
+                desc: 'Melodía melancólica inmersiva previa al clímax total.',
+                art: 'one_last_memory.jpg',
+                youtubeId: 'cR7r3Lzq9_0'
+            },
+            {
+                id: 'eternal',
+                title: 'Eternal Light',
+                colorName: 'Prisma Espectral',
+                hex: '#6366f1',
+                glow: 'rgba(99, 102, 241, 0.3)',
+                desc: 'La reintegración de la luz. Clímax completo con toda la paleta sonora.',
+                art: 'enternal_light.jpg',
+                youtubeId: 'geQsZD4t9jQ'
+            }
+        ];
+
+        // Dynamic Elements
+        const container = document.getElementById('tracklist-container');
+        const mainCover = document.getElementById('main-cover-display');
+        const youtubePlayer = document.getElementById('main-youtube-player');
+        const nowPlayingBadge = document.getElementById('now-playing-badge');
+
+        function renderTracks() {
+            container.innerHTML = '';
+            albumTracks.forEach((track, index) => {
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-xl cursor-pointer transition-all duration-300 bg-white border border-slate-200 hover:border-slate-300 relative overflow-hidden group ${index === 0 ? 'active-track-card' : ''}`;
+                card.id = `track-card-${track.id}`;
+                
+                card.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-3 h-12 rounded-full transition-all duration-300" style="background-color: ${track.hex}"></div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-center mb-0.5">
+                                <h4 class="font-scifi text-xs font-bold uppercase text-slate-900 truncate">${track.title}</h4>
+                                <span class="text-[10px] font-mono text-slate-400">0${index + 1}</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 truncate flex items-center justify-between">
+                                <span>${track.colorName}</span>
+                                <span class="text-[10px] font-semibold text-red-600"><i class="fa-brands fa-youtube"></i> Video</span>
+                            </p>
+                            <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">${track.desc}</p>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => selectTrack(track));
+                container.appendChild(card);
+            });
+        }
+
+        function selectTrack(track) {
+            // Update Root CSS variables for dynamic themes
+            document.documentElement.style.setProperty('--active-accent', track.hex);
+            document.documentElement.style.setProperty('--active-glow', track.glow);
+
+            // Update main image display with fallback error handler
+            mainCover.src = track.art;
+            mainCover.onerror = function() {
+                this.src = `https://placehold.co/800x800/f8f9fa/1a1d20?text=${encodeURIComponent(track.title)}`;
+            };
+
+            // Dynamic Embed YouTube Video update
+            if (youtubePlayer && track.youtubeId) {
+                youtubePlayer.src = `https://www.youtube.com/embed/${track.youtubeId}?autoplay=1`;
+            }
+
+            // Update Badge Text
+            if (nowPlayingBadge) {
+                nowPlayingBadge.innerText = `Reproduciendo: ${track.title}`;
+            }
+
+            // Toggle active card styling
+            document.querySelectorAll('#tracklist-container > div').forEach(c => c.classList.remove('active-track-card'));
+            const activeCard = document.getElementById(`track-card-${track.id}`);
+            if (activeCard) {
+                activeCard.classList.add('active-track-card');
+            }
+        }
+
+        // Clipboard Copy Helper
+        function copyToClipboard(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("Enlace copiado al portapapeles");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2500);
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderTracks();
+            selectTrack(albumTracks[0]);
+        };
+    </script>
+    <br><br><br>
+    <hr>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/aTzOPvGlRGM?si=zBCrv_jGEc5BE6h2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </center>
+    <hr>
+</body>
+</html>

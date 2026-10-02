@@ -533,12 +533,40 @@
             </div>
         </section>
 
+        <!-- EASTER EGG SECTION -->
+        <section class="text-center my-8">
+            <button onclick="openGameModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-200/60 hover:bg-slate-300/80 text-slate-600 hover:text-slate-900 transition-all duration-300 font-scifi text-xs font-semibold uppercase tracking-wider border border-slate-300/50 hover:shadow-md hover:scale-105">
+                <i class="fa-solid fa-gamepad accent-color text-sm"></i>
+                <span>¿Quieres Jugar Poquito?</span>
+            </button>
+        </section>
+
         <!-- FOOTER -->
         <footer class="text-center text-slate-400 text-xs py-6">
             <p class="font-scifi tracking-widest uppercase">© 2026 RIÑA GAÑAN — ETERNAL LIGHT</p>
             <p class="mt-1 text-slate-400">Todos los derechos reservados. León, Guanajuato, México.</p>
         </footer>
 
+    </div>
+
+    <!-- GAME MODAL -->
+    <div id="game-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="relative w-full h-full max-w-5xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+            <!-- Modal Header Bar -->
+            <div class="flex items-center justify-between px-4 py-3 bg-slate-950/90 border-b border-slate-800 text-slate-200 font-scifi text-xs tracking-wider">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad accent-color"></i>
+                    <span>SNAKE GAME — PRISMA EDITION - W*A*S*D TO MOVE</span>
+                </span>
+                <button onclick="closeGameModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white transition flex items-center justify-center font-bold text-sm">
+                    ✕
+                </button>
+            </div>
+            <!-- Modal Content Iframe -->
+            <div class="flex-1 w-full h-full bg-black relative">
+                <iframe id="game-iframe" src="" class="w-full h-full border-0" title="Snake Game"></iframe>
+            </div>
+        </div>
     </div>
 
     <!-- Notification Toast Box -->
@@ -717,6 +745,32 @@
                 activeCard.classList.add('active-track-card');
             }
         }
+
+        // Easter Egg Modal Functions
+        function openGameModal() {
+            const modal = document.getElementById('game-modal');
+            const iframe = document.getElementById('game-iframe');
+            iframe.src = 'snake_game.html';
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGameModal() {
+            const modal = document.getElementById('game-modal');
+            const iframe = document.getElementById('game-iframe');
+            modal.classList.add('hidden');
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Modal on backdrop click or Escape key
+        document.getElementById('game-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeGameModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeGameModal();
+        });
 
         // Clipboard Copy Helper
         function copyToClipboard(text) {
